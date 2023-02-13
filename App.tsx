@@ -4,6 +4,7 @@ import {
   View,
   Pressable,
   Text,
+  Platform,
   LayoutChangeEvent,
 } from 'react-native';
 
@@ -123,7 +124,7 @@ const AnimatedTabBar = ({
   descriptors,
 }: BottomTabBarProps) => {
   const {bottom} = useSafeAreaInsets();
-
+  console.log(bottom);
   // position ----------------------------------------------------------
 
   const reducer = (state: any, action: {x: number; index: number}) => {
@@ -155,7 +156,11 @@ const AnimatedTabBar = ({
   });
 
   return (
-    <View style={[styles.tabBar, {paddingBottom: bottom + 16}]}>
+    <View
+      style={[
+        styles.tabBar,
+        {paddingBottom: Platform.OS === 'android' ? bottom + 16 : 0},
+      ]}>
       <AnimatedSvg
         width={110}
         height={60}
