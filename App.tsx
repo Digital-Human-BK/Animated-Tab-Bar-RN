@@ -26,7 +26,6 @@ import {
 } from 'react-native-safe-area-context';
 
 import {useEffect, useReducer, useRef} from 'react';
-import SplashScreen from 'react-native-splash-screen';
 import Lottie from 'lottie-react-native';
 import Svg, {Path} from 'react-native-svg';
 import {NavigationContainer} from '@react-navigation/native';
@@ -36,11 +35,6 @@ const Tab = createBottomTabNavigator();
 const AnimatedSvg = Animated.createAnimatedComponent(Svg);
 
 function App(): JSX.Element {
-  useEffect(() => {
-    console.log('Initial App loading');
-    SplashScreen.hide();
-  }, []);
-
   return (
     <SafeAreaProvider>
       <StatusBar barStyle="light-content" />
